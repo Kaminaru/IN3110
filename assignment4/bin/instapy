@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+
+import argparse
+import cv2
+import os
+from instapy.python_color2gray import python_color2gray
+from instapy.python_color2sepia import python_color2sepia
+from instapy.numpy_color2gray import numpy_color2gray
+from instapy.numpy_color2sepia import numpy_color2sepia
+from instapy.numba_color2gray import numba_color2gray
+from instapy.numba_color2sepia import numba_color2sepia
+
+
+
+parser = argparse.ArgumentParser(description="Color Filter")
+parser.add_argument('-f', '--file', type=str, metavar='', required=True, help='The file name of file to apply filter to')
+
+group1 = parser.add_mutually_exclusive_group() # gray or sepia filter group
+group1.add_argument('-se', '--sepia', action = 'store_true', help='Select sepia filter')
+group1.add_argument('-g', '--gray', action = 'store_true', help='Select gray filter')
+
+parser.add_argument('-sc', '--scale', type=float, metavar='', help='Scale factor to resize image')
+# parser.add_argument('-i', '--implement', type=str, metavar='', help='Choose the implement')
+parser.add_argument('-i', '--implement', default='numpy', const='numpy', nargs='?', choices=['python', 'numba', 'numpy'], help='Choose the implement')
+parser.add_argument('-o', '--out', type=str, metavar='', help='The output filename')
+parser.add_argument('-st', '--stepless', type=float, metavar='STEP', default=1, help='Write value from 0 to 1 for Sepia effect 0-100 procent')
+
+args = parser.parse_args()
+
+def sepia(input_filename):
+    '''
+    Procedure that applies sepia filter to a image
+    Args:
+        input_filename: string 
+    '''
+    image = None
+    step = float(args.stepless)
+    if step > 1 or step < 0:
+        print("Step cannot be bigger than 1.0 or less than 0.")
+        print(f"Selecting step 1")
+        step = 1
+    # if args.stepless and args.stepless <= 1 and args.stepless >= 0: # if given
+    #     step = args.stepless
+    if args.implement == "python":
+        image = python_color2sepia(input_filename, step)
+    elif args.implement == "numba":
+        image = numba_color2sepia(input_filename, step)
+    else: # if numpy (or if it is nothing, it will do numpy too)
+        image = numpy_color2sepia(input_filename, step)
+
+    if args.scale: # if scale is given
+        image = cv2.resize(image, (0, 0), fx=args.scale, fy=args.scale)
+
+    if args.out: # if there is given output file name
+        path = input("Write path (in form: D:/Images/Changed or Changed (if you are in the Images folder))")
+        cv2.imwrite(os.path.join(path , args.out),image)
+
+def gray(input_filename):
+    '''
+    Procedure that applies gray filter to a image
+    Args:
+        input_filename: string 
+    '''
+    if args.implement == "python":
+        image = python_color2gray(input_filename)
+    elif args.implement == "numba":
+        image = numba_color2gray(input_filename)
+    else: # if numpy (or if it is nothing, it will do numpy too)
+        image = numpy_color2gray(input_filename)
+
+    if args.scale: # if scale is given
+        image = cv2.resize(image, (0, 0), fx=args.scale, fy=args.scale)
+
+    if args.out: # if there is given output file name
+        path = input("Write path (in form: D:/Images/Changed or Changed (if you are in the Images folder))")
+        cv2.imwrite(os.path.join(path , args.out),image)
+
+
+if __name__ == '__main__':
+    if args.gray: # gray filter is choosen
+        gray(args.file)
+    elif args.sepia: # sepia filter is choosen (Don't need to check if gray arg is on.
+                                            # Because one group can have only one arg on)
+        sepia(args.file)
+    else:
+        print("Please choose the filter")

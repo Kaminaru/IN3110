@@ -1,0 +1,21 @@
+Dimensions of the image being grayscaled: (rain.jpg)
+  (height)  H - 400
+   (width)  W - 600
+(channels)  C - 3
+
+
+Timing: numba_color2gray
+Average runtime running numpy_color2gray after 3 runs: 0.0191632 s
+Average runtime for running numba_color2gray is 200 times
+  faster than python_color2gray
+Average runtime running numba_color2gray is same as numpy_color2gray if the
+  the number of running times is big
+Timing performed using: timeit library
+                        print("Average: ", timeit.timeit(numba_color2gray, number=3)/3)
+                        print("Average: ", timeit.timeit(numba_color2gray, number=400)/400)
+                        print("Average: ", timeit.timeit(numba_color2gray, number=1000)/1000)
+
+
+Time is almost the same as with numpy when the number of images is not high.
+So I recommend to use the numpy because it have same time almost for any
+number of images

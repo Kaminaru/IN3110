@@ -1,0 +1,12 @@
+Dimensions of the image being grayscaled: (rain.jpg)
+  (height)  H - 400
+   (width)  W - 600
+(channels)  C - 3
+
+
+Timing: numpy_color2sepia
+Average runtime running numpy_color2sepia after 3 runs: 0.031271 s
+Average runtime running numpy_color2sepia after 500 runs: 0.038694 s
+Timing performed using: timeit library
+                        print("Average: ", timeit.timeit(numpy_color2sepia, number=3)/3)
+                        print("Average: ", timeit.timeit(numpy_color2sepia, number=500)/500)

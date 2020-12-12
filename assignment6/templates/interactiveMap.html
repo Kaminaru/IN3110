@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block linksForms %}
+<form action="/" method="GET">
+    <input type="submit" value="Main"></form>
+<form action="/helpPage" method="GET">
+  <input type="submit" value="Help Page"></form>
+<form action="/task2" method="GET">
+  <input type="submit" value="Task2"></form>
+<form action="/dropDown" method="GET">
+  <input type="submit" value="Drop Down"></form>
+{% endblock %}
+
+  {% block title %}Interactive Map{% endblock %}
+
+  {% block plots %}
+  <div id="vis"></div>
+  <script>
+    (async function(vegaEmbed) {
+      var response = await fetch('mapPlot.json');
+      var spec = await response.json();
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+  {% endblock %}

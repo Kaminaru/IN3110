@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Drop Down{% endblock %}
+
+{% block linksForms %}
+<form action="/" method="GET">
+    <input type="submit" value="Main"></form>
+<form action="/helpPage" method="GET">
+  <input type="submit" value="Help Page"></form>
+<form action="/task2" method="GET">
+  <input type="submit" value="Task2"></form>
+<form action="/interactiveMap" method="GET">
+  <input type="submit" value="Interactive Map"></form>
+{% endblock %}
+
+
+{% block text1 %}
+<h2>Choose county you want to get a plot for</h2>
+{% endblock %}
+
+{% block dropDown %}
+<h3>--------------------------------------------------------------------</h3>
+<form action="#" method="post">
+<select name="countyName">
+    <option value= "All Counties" SELECTED>All Counties</option>
+    {% for county in counties %}
+    <option value= "{{county}}">{{county}}</option>
+    {% endfor %}
+</select>
+<input type="submit" value="Show Plot">
+</form>
+<h3>--------------------------------------------------------------------</h3>
+{% endblock %}
+
+
+{% block plots %}
+<div id="vis"></div>
+<script>
+  (async function(vegaEmbed) {
+    var response = await fetch('threeRowPlot.json');
+    var spec = await response.json();
+    var embedOpt = {"mode": "vega-lite"};
+
+    function showError(el, error){
+        el.innerHTML = ('<div class="error" style="color:red;">'
+                        + '<p>JavaScript Error: ' + error.message + '</p>'
+                        + "<p>This usually means there's a typo in your chart specification. "
+                        + "See the javascript console for the full traceback.</p>"
+                        + '</div>');
+        throw error;
+    }
+    const el = document.getElementById('vis');
+    vegaEmbed("#vis", spec, embedOpt)
+      .catch(error => showError(el, error));
+  })(vegaEmbed);
+
+</script>
+{% endblock %}

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module web_visualization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>web_visualization</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/AnnaJarmann/IN3110-danielik/assignment6/web_visualization.py">/Users/AnnaJarmann/IN3110-danielik/assignment6/web_visualization.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="altair.html">altair</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-changeDate"><strong>changeDate</strong></a>(date)</dt><dd><tt>Changes&nbsp;date&nbsp;string&nbsp;to&nbsp;format:&nbsp;year-month-day.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date&nbsp;(String):&nbsp;Date&nbsp;string&nbsp;with&nbsp;format&nbsp;day/month/year<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(String):&nbsp;Date&nbsp;string&nbsp;with&nbsp;format&nbsp;year-month-day</tt></dd></dl>
+ <dl><dt><a name="-dropdown"><strong>dropdown</strong></a>()</dt><dd><tt>Creates&nbsp;HTML&nbsp;template&nbsp;for&nbsp;drop&nbsp;down&nbsp;menu&nbsp;of&nbsp;the&nbsp;counties,<br>
+with&nbsp;the&nbsp;plotting&nbsp;of&nbsp;reported&nbsp;cases,&nbsp;cumulative&nbsp;cases&nbsp;and&nbsp;both&nbsp;together.<br>
+Displays&nbsp;this&nbsp;on&nbsp;the&nbsp;web-page&nbsp;using&nbsp;Flask&nbsp;and&nbsp;by&nbsp;rendering&nbsp;the&nbsp;template.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Template):&nbsp;Rendered&nbsp;template&nbsp;of&nbsp;'dropDown.html'</tt></dd></dl>
+ <dl><dt><a name="-escape"><strong>escape</strong></a>(...)</dt><dd><tt><a href="#-escape">escape</a>(s)&nbsp;-&gt;&nbsp;markup<br>
+&nbsp;<br>
+Convert&nbsp;the&nbsp;characters&nbsp;&amp;,&nbsp;&lt;,&nbsp;&gt;,&nbsp;',&nbsp;and&nbsp;"&nbsp;in&nbsp;string&nbsp;s&nbsp;to&nbsp;HTML-safe<br>
+sequences.&nbsp;&nbsp;Use&nbsp;this&nbsp;if&nbsp;you&nbsp;need&nbsp;to&nbsp;display&nbsp;text&nbsp;that&nbsp;might&nbsp;contain<br>
+such&nbsp;characters&nbsp;in&nbsp;HTML.&nbsp;&nbsp;Marks&nbsp;return&nbsp;value&nbsp;as&nbsp;markup&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-help_page"><strong>help_page</strong></a>()</dt><dd><tt>Displays&nbsp;documentation&nbsp;of&nbsp;the&nbsp;module&nbsp;by&nbsp;rendering&nbsp;template&nbsp;of&nbsp;'help.html',<br>
+which&nbsp;is&nbsp;created&nbsp;using&nbsp;PyDoc,&nbsp;and&nbsp;using&nbsp;Flask.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Template):&nbsp;Rendered&nbsp;template&nbsp;of&nbsp;'help.html'</tt></dd></dl>
+ <dl><dt><a name="-interactiveMap"><strong>interactiveMap</strong></a>()</dt><dd><tt>Displays&nbsp;interactive&nbsp;map&nbsp;of&nbsp;covid-cases&nbsp;in&nbsp;Norway&nbsp;by&nbsp;rendering&nbsp;template&nbsp;of<br>
+'interactiveMap.html'&nbsp;and&nbsp;using&nbsp;Flask.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Template):&nbsp;Rendered&nbsp;template&nbsp;of&nbsp;'interactiveMap.html'</tt></dd></dl>
+ <dl><dt><a name="-mapPlot_json"><strong>mapPlot_json</strong></a>()</dt><dd><tt>Displays&nbsp;map&nbsp;with&nbsp;plotting&nbsp;of&nbsp;covid-cases&nbsp;in&nbsp;Norway&nbsp;reading&nbsp;from&nbsp;the&nbsp;"mapPlot.json"-file.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(JSON-text):&nbsp;The&nbsp;text&nbsp;in&nbsp;the&nbsp;"mapPlot.json"-file</tt></dd></dl>
+ <dl><dt><a name="-plot_both"><strong>plot_both</strong></a>(county='all counties', start=None, end=None)</dt><dd><tt>Displaying&nbsp;Number&nbsp;of&nbsp;reported&nbsp;cases&nbsp;and&nbsp;Cumulative&nbsp;number&nbsp;of&nbsp;cases&nbsp;in&nbsp;one&nbsp;plot.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;county&nbsp;(String):&nbsp;County&nbsp;to&nbsp;plot&nbsp;(Default:&nbsp;All&nbsp;counties)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;(String):&nbsp;Start&nbsp;date&nbsp;in&nbsp;format&nbsp;day/month/year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;(String):&nbsp;End&nbsp;date&nbsp;in&nbsp;format&nbsp;day/month/year<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;both&nbsp;(Chart):&nbsp;Layered&nbsp;plot&nbsp;of&nbsp;both&nbsp;reported&nbsp;cases&nbsp;and&nbsp;cumulative&nbsp;cases<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Returns&nbsp;nothing&nbsp;if&nbsp;plotting&nbsp;went&nbsp;wrong)</tt></dd></dl>
+ <dl><dt><a name="-plot_cumulative_cases"><strong>plot_cumulative_cases</strong></a>(county='all counties', start=None, end=None)</dt><dd><tt>Plots&nbsp;line&nbsp;plot&nbsp;for&nbsp;cumulative&nbsp;cases.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;county&nbsp;(String):&nbsp;County&nbsp;to&nbsp;plot&nbsp;(Default:&nbsp;All&nbsp;counties)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;(String):&nbsp;Start&nbsp;date&nbsp;in&nbsp;format&nbsp;day/month/year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;(String):&nbsp;End&nbsp;date&nbsp;in&nbsp;format&nbsp;day/month/year<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cumulBarPlot&nbsp;(Chart):&nbsp;Line&nbsp;plot&nbsp;of&nbsp;cumulative&nbsp;cases</tt></dd></dl>
+ <dl><dt><a name="-plot_norway"><strong>plot_norway</strong></a>()</dt><dd><tt>Creates&nbsp;interactive&nbsp;visualization&nbsp;using&nbsp;Pandas.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fig&nbsp;(Chart):&nbsp;Visualization&nbsp;of&nbsp;plot&nbsp;for&nbsp;Norway</tt></dd></dl>
+ <dl><dt><a name="-plot_reported_case"><strong>plot_reported_case</strong></a>(county='all counties', start=None, end=None)</dt><dd><tt>Plots&nbsp;bar&nbsp;plot&nbsp;for&nbsp;reported&nbsp;cases.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;county&nbsp;(String):&nbsp;County&nbsp;to&nbsp;plot&nbsp;(Default:&nbsp;All&nbsp;counties)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;(String):&nbsp;Start&nbsp;date&nbsp;in&nbsp;format&nbsp;day/month/year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;(String):&nbsp;End&nbsp;date&nbsp;in&nbsp;format&nbsp;day/month/year<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reportedBarPlot&nbsp;(Chart):&nbsp;Bar&nbsp;plot&nbsp;of&nbsp;reported&nbsp;cases</tt></dd></dl>
+ <dl><dt><a name="-returnFileDest"><strong>returnFileDest</strong></a>(county)</dt><dd><tt>Gets&nbsp;county&nbsp;string&nbsp;and&nbsp;returns&nbsp;needed&nbsp;path&nbsp;to&nbsp;the&nbsp;csv&nbsp;file&nbsp;from&nbsp;the&nbsp;dictionary.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;county&nbsp;(String):&nbsp;County&nbsp;user&nbsp;want&nbsp;to&nbsp;plot<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(String):&nbsp;Path&nbsp;to&nbsp;the&nbsp;csv&nbsp;file&nbsp;for&nbsp;corresponding&nbsp;county<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Returns&nbsp;None&nbsp;if&nbsp;county&nbsp;wasn't&nbsp;found&nbsp;in&nbsp;the&nbsp;dictionary)</tt></dd></dl>
+ <dl><dt><a name="-show_county_plot"><strong>show_county_plot</strong></a>()</dt><dd><tt>Displays&nbsp;main&nbsp;page.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Template):&nbsp;Rendered&nbsp;template&nbsp;of&nbsp;'base.html'</tt></dd></dl>
+ <dl><dt><a name="-threeRowPlot_json"><strong>threeRowPlot_json</strong></a>()</dt><dd><tt>Displays&nbsp;the&nbsp;plotting&nbsp;of&nbsp;reported&nbsp;cases,&nbsp;cumulative&nbsp;cases&nbsp;and&nbsp;both&nbsp;together,<br>
+reading&nbsp;from&nbsp;the&nbsp;"threeRowPlot.json"-file.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(JSON-text):&nbsp;The&nbsp;text&nbsp;in&nbsp;the&nbsp;"threeRowPlot.json"-file</tt></dd></dl>
+ <dl><dt><a name="-webPlot2"><strong>webPlot2</strong></a>()</dt><dd><tt>Creates&nbsp;HTML&nbsp;template&nbsp;for&nbsp;plotting&nbsp;of&nbsp;reported&nbsp;cases,&nbsp;cumulative&nbsp;cases&nbsp;and&nbsp;both&nbsp;together.<br>
+Displays&nbsp;this&nbsp;on&nbsp;the&nbsp;web&nbsp;page&nbsp;using&nbsp;Flask,&nbsp;and&nbsp;by&nbsp;rendering&nbsp;the&nbsp;created&nbsp;template.<br>
+&nbsp;<br>
+No&nbsp;parameters.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Template):&nbsp;Rendered&nbsp;template&nbsp;of&nbsp;'webPlots.html'</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>app</strong> = &lt;Flask 'web_visualization'&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>
