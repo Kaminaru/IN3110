@@ -1,7 +1,7 @@
 #!/bin/bash
 
 label="" # holds value for label;
-LOGFILE="/$(whoami)/.local/share/logfile.txt" # whoami finds name of the user
+# LOGFILE="/$(whoami)/.local/share/logfile.txt" # whoami finds name of the user
 
 function track {
   if [ "$1" == "start" ]; then
@@ -10,14 +10,14 @@ function track {
       echo "Error: $# arguments are given. Need 2 (start [lable]). Can not continue."
     else
       # first we check if we have this file; if not, we make one
-      if ! [ -f "$LOGFILE" ]; then
-        touch "$LOGFILE"
+      if ! [ -f "~/.local/share/logfile.txt" ]; then
+        touch ~/.local/share/logfile.txt
       fi
 
       if [ -z "$label" ]; then # checks if label variable is empty
         label=$2 # label equal first argument
-        echo "START $(date)" >> $LOGFILE
-        echo "LABEL This is task ${label}" >> $LOGFILE
+        echo "START $(date)" >> ~/.local/share/logfile.txt
+        echo "LABEL This is task ${label}" >> ~/.local/share/logfile.txt
       else
         echo "There is already a task running"
       fi
@@ -27,8 +27,8 @@ function track {
     if [ -z "$label" ]; then # checks if label variable is empty
       echo "There is no task that is running at the moment"
     else
-      echo "END $(date)" >> $LOGFILE
-      echo "" >> $LOGFILE
+      echo "END $(date)" >> ~/.local/share/logfile.txt
+      echo "" >> ~/.local/share/logfile.txt
       label="" # to make lable avalable for next task
     fi
 
@@ -41,7 +41,7 @@ function track {
 
   elif [ "$1" == "log" ]; then
     # TASK <lable>: HH:MM:SS
-    input="$LOGFILE"
+    input=~/.local/share/logfile.txt
     startTime="" # holds value for start time
     lablename="" # holds value for label name
     endTime=""   # holds value for end time
@@ -81,11 +81,6 @@ function track {
           track log                   To check log for tracker"
   fi
 }
-
-
-
-
-
 
 
 
